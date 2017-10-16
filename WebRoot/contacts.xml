@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contacts>
+	 <contact id="1">
+	     <name>张飞</name>
+	     <image src="http://localhost:8080/testWeb/downLoad/11.jpg" />
+	 </contact>
+	 <contact id="1">
+         <name>李四</name>
+         <image src="http://localhost:8080/testWeb/downLoad/11.jpg" />
+	 </contact>
+	  <contact id="1">
+	     <name>王五</name>
+	     <image src="http://localhost:8080/testWeb/downLoad/11.jpg" />
+	 </contact>
+	  <contact id="1">
+	     <name>赵云</name>
+	     <image src="http://localhost:8080/testWeb/downLoad/11.jpg" />
+	 </contact>
+	  <contact id="1">
+	     <name>关羽</name>
+	     <image src="http://localhost:8080/testWeb/downLoad/11.jpg" />
+	 </contact>
+
+</contacts>

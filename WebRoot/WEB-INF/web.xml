@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+  <display-name>web test</display-name>
+  <resource-ref>
+      <description>DB Connection</description>
+      <res-ref-name>jdbc/testweb</res-ref-name>
+      <res-type>javax.sql.DataSource</res-type>
+      <res-auth>Container</res-auth>
+  </resource-ref>
+  <servlet>
+    <servlet-name>fileUploadServlet</servlet-name>
+    <servlet-class>org.nercita.test.servlet.fileUploadServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>ReceivedMSMServlet</servlet-name>
+    <servlet-class>org.nercita.test.servlet.ReceivedMSMServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>HttpServletTest</servlet-name>
+    <servlet-class>org.nercita.test.servlet.HttpServletTest</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>VerificationCodeServlet</servlet-name>
+    <servlet-class>org.nercita.test.servlet.VerificationCodeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>CookieServlet</servlet-name>
+    <servlet-class>org.nercita.test.servlet.CookieServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SessionBuyServlet</servlet-name>
+    <servlet-class>org.nercita.test.servlet.SessionBuyServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SessionPayServlet</servlet-name>
+    <servlet-class>org.nercita.test.servlet.SessionPayServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SessionIndexServlet</servlet-name>
+    <servlet-class>org.nercita.test.servlet.SessionIndexServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>FormResubmitServlet</servlet-name>
+    <servlet-class>org.nercita.test.servlet.FormResubmitServlet</servlet-class>
+  </servlet>
+
+
+
+  <servlet-mapping>
+    <servlet-name>fileUploadServlet</servlet-name>
+    <url-pattern>/servlet/fileUploadServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ReceivedMSMServlet</servlet-name>
+    <url-pattern>/servlet/ReceivedMSMServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HttpServletTest</servlet-name>
+    <url-pattern>/servlet/HttpServletTest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>VerificationCodeServlet</servlet-name>
+    <url-pattern>/servlet/VerificationCodeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CookieServlet</servlet-name>
+    <url-pattern>/servlet/CookieServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SessionBuyServlet</servlet-name>
+    <url-pattern>/servlet/SessionBuyServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SessionPayServlet</servlet-name>
+    <url-pattern>/servlet/SessionPayServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SessionIndexServlet</servlet-name>
+    <url-pattern>/servlet/SessionIndexServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FormResubmitServlet</servlet-name>
+    <url-pattern>/servlet/FormResubmitServlet</url-pattern>
+  </servlet-mapping>	
+  <welcome-file-list>
+  	<welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  
+  
+  
+  <servlet>
+    <servlet-name>hitRMIServlet</servlet-name>
+    <servlet-class>org.springframework.web.context.support.HttpRequestHandlerServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>JNDIServlet</servlet-name>
+    <servlet-class>org.nercita.test.servlet.JNDIServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>TestServlet</servlet-name>
+    <servlet-class>zmx.test.TestServlet</servlet-class>
+  </servlet>
+
+
+  <servlet-mapping>
+    <servlet-name>fileUploadServlet</servlet-name>
+    <url-pattern>/remoting/hitRMIServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>JNDIServlet</servlet-name>
+    <url-pattern>/servlet/JNDIServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>TestServlet</servlet-name>
+    <url-pattern>/servlet/TestServlet</url-pattern>
+  </servlet-mapping>
+
+  
+  
+  
+  <!-- 请求url日志记录过滤器 -->    
+    <filter>    
+        <filter-name>logfilter</filter-name>    
+        <filter-class>org.nercita.test.servlet.LogFilter</filter-class>    
+    </filter>    
+    <filter-mapping>    
+        <filter-name>logfilter</filter-name>    
+        <url-pattern>/*</url-pattern>    
+    </filter-mapping>  
+      
+
+    <!-- 编码过滤器 -->  
+    <filter>  
+        <filter-name>EncodingFilter</filter-name>  
+        <filter-class>org.nercita.test.servlet.EncodingFilter</filter-class>  
+        <init-param>  
+            <param-name>encoding</param-name>  
+            <param-value>utf-8</param-value>  
+        </init-param>  
+    </filter>  
+    <filter-mapping>  
+        <filter-name>EncodingFilter</filter-name>  
+        <url-pattern>/*</url-pattern>  
+    </filter-mapping>  
+  
+    
+  
+</web-app>

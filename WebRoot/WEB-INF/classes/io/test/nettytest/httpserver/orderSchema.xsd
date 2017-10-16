@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"  
+        xmlns:tns="http://www.example.org/orderSchema" 
+        targetNamespace="http://www.example.org/orderSchema"
+        elementFormDefault="qualified">
+        
+       <element name="order" type="tns:order" />
+       
+       <complexType name="address">
+           <sequence>                     
+               <element type="string" name="street1" minOccurs="0" />
+               <element type="string" name="street2" minOccurs="0" />
+               <element type="string" name="city" minOccurs="0" />
+               <element type="string" name="state" minOccurs="0" />
+               <element type="string" name="postCode" minOccurs="0" />
+               <element type="string" name="country" minOccurs="0" />   
+           </sequence>       
+       </complexType>
+       
+       <complexType name="order">
+           <sequence>
+              <element name="customer" minOccurs="0">
+                  <complexType>
+                     <sequence>
+                        <element type="string" name="firstName" minOccurs="0"></element>
+                        <element type="string" name="lastName" minOccurs="0"></element>
+                        <element type="string" name="middleName" minOccurs="0" maxOccurs="unbounded"></element>
+                     </sequence>
+                     <attribute type="long" use="required" name="customerNumber"></attribute>
+                  </complexType>
+              </element>
+              <element type="tns:address" name="billTo" minOccurs="0"></element>
+              <element name="shipping" minOccurs="0">
+                  <simpleType>
+                     <restriction base="string">
+                         <enumeration value="standard_mall"></enumeration>
+                         <enumeration value="priority_mall"></enumeration>
+                         <enumeration value="international_mall"></enumeration>
+                         <enumeration value="domestic_express"></enumeration>
+                         <enumeration value="international_express"></enumeration>
+                     </restriction>
+                  </simpleType>
+              </element>
+              <element type="tns:address" name="shipTo" minOccurs="0"></element>
+           </sequence>
+           <attribute type="long" use="required" name="orderNumber"></attribute>
+           <attribute type="float" name="total"></attribute>
+       </complexType>  
+</schema>

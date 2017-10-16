@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ehcache.xsd">
+
+    <diskStore path="java.io.tmpdir/hibernate/eHaccp"/>
+
+    <defaultCache maxElementsInMemory="1000"  eternal="false" overflowToDisk="true"
+                  memoryStoreEvictionPolicy="LRU" maxElementsOnDisk="100000" diskExpiryThreadIntervalSeconds="600"
+                  timeToIdleSeconds="600" timeToLiveSeconds="1000" diskPersistent="false"/>
+
+    <cache name="org.hibernate.cache.UpdateTimestampsCache" maxElementsInMemory="1000" eternal="true"
+           overflowToDisk="false" memoryStoreEvictionPolicy="LRU"/>
+           
+    <cache name="org.hibernate.cache.StandardQueryCache" maxElementsInMemory="1000" eternal="true"
+           overflowToDisk="false" memoryStoreEvictionPolicy="LRU"/>
+           
+    <!-- Special objects setting. -->
+    <cache name="org.nercita.pbms.basic.domain.Trait" maxElementsInMemory="500" overflowToDisk="true" eternal="true"
+           memoryStoreEvictionPolicy="LRU"/>
+    <cache name="org.nercita.pbms.basic.domain.Trait.quantizationLevel" maxElementsInMemory="500" overflowToDisk="true"
+           eternal="true" memoryStoreEvictionPolicy="LRU"/>
+    <cache name="org.nercita.pbms.basic.domain.TraitGroup" maxElementsInMemory="500" overflowToDisk="true"
+           eternal="true" memoryStoreEvictionPolicy="LRU"/>
+    <cache name="org.nercita.pbms.basic.domain.TraitUnit" maxElementsInMemory="500" overflowToDisk="true" eternal="true"
+           memoryStoreEvictionPolicy="LRU"/>
+    <cache name="org.nercita.pbms.basic.domain.BreedingMode" maxElementsInMemory="500" overflowToDisk="true"
+           eternal="true" memoryStoreEvictionPolicy="LRU"/>
+    <cache name="org.nercita.pbms.basic.domain.BreedingPeriod" maxElementsInMemory="500" overflowToDisk="true"
+           eternal="true" memoryStoreEvictionPolicy="LRU"/>
+    <cache name="org.nercita.pbms.basic.domain.Duty" maxElementsInMemory="500" overflowToDisk="true" eternal="true"
+           memoryStoreEvictionPolicy="LRU"/>
+    <cache name="org.nercita.pbms.basic.domain.Department" maxElementsInMemory="500" overflowToDisk="true"
+           eternal="true" memoryStoreEvictionPolicy="LRU"/>
+    <cache name="org.nercita.pbms.basic.domain.Employee" maxElementsInMemory="500" overflowToDisk="true" eternal="true"
+           memoryStoreEvictionPolicy="LRU"/>
+    <cache name="org.nercita.pbms.basic.domain.InputsClass" maxElementsInMemory="500" overflowToDisk="true"
+           eternal="true" memoryStoreEvictionPolicy="LRU"/>
+    <cache name="org.nercita.pbms.basic.domain.InputsUnit" maxElementsInMemory="500" overflowToDisk="true"
+           eternal="true" memoryStoreEvictionPolicy="LRU"/>
+    <cache name="org.nercita.pbms.basic.domain.Inputs" maxElementsInMemory="500" overflowToDisk="true" eternal="true"
+           memoryStoreEvictionPolicy="LRU"/>
+    <cache name="org.nercita.pbms.basic.domain.JobClass" maxElementsInMemory="500" overflowToDisk="true" eternal="true"
+           memoryStoreEvictionPolicy="LRU"/>
+    <cache name="org.nercita.pbms.basic.domain.Job" maxElementsInMemory="500" overflowToDisk="true" eternal="true"
+           memoryStoreEvictionPolicy="LRU"/>
+    <cache name="org.nercita.pbms.basic.domain.TrialMethod" maxElementsInMemory="500" overflowToDisk="true"
+           eternal="true" memoryStoreEvictionPolicy="LRU"/>
+    <cache name="org.nercita.pbms.basic.domain.PlantMethod" maxElementsInMemory="500" overflowToDisk="true"
+           eternal="true" memoryStoreEvictionPolicy="LRU"/>
+    <cache name="org.nercita.pbms.basic.domain.MobileDevice" maxElementsInMemory="500" overflowToDisk="true"
+           eternal="true" memoryStoreEvictionPolicy="LRU"/>
+    <cache name="org.nercita.pbms.basic.domain.GermplasmSource" maxElementsInMemory="500" overflowToDisk="true"
+           eternal="true" memoryStoreEvictionPolicy="LRU"/>
+    <cache name="org.nercita.pbms.basic.domain.GermplasmType" maxElementsInMemory="500" overflowToDisk="true"
+           eternal="true" memoryStoreEvictionPolicy="LRU"/>
+    <cache name="org.nercita.pbms.basic.domain.Section" maxElementsInMemory="500" overflowToDisk="true" eternal="true"
+           memoryStoreEvictionPolicy="LRU"/>
+    <cache name="org.nercita.pbms.system.domain.Annual" maxElementsInMemory="100" overflowToDisk="true" eternal="true"
+           memoryStoreEvictionPolicy="LRU"/>
+</ehcache>

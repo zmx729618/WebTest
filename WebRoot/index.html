@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<script type="text/javascript" src="./js/jquery.js"></script> 
+<style>
+
+
+</style>
+<script type="text/javascript">  
+/*
+    function Editor(selector){
+	   this.$editor = $(selector);
+	   this.bindEvents_();
+	 
+	}
+	
+	Editor.prototype.bindEvents_ = function(){
+	    this.$editor.on("click","button",function(e){
+	       switch(e.currentTarget.id){
+	          case "bold": 
+	              alert("bold");
+	              document.execCommand("bold");
+	              break;
+	          case "italic":
+		          document.execCommand("italic");
+	              break;       
+	          case "underline":
+	     	      document.execCommand("underline");
+	              break;     
+	       
+	       }
+	    
+	    
+	    });
+	}
+new Editor("#editor"); */
+
+$(function(){
+
+});
+
+</script>
+</head>
+
+<body>
+<h2>下面是编辑器</h2>
+<div id="editor">
+  <button id="bold"><b>加粗</b></button>
+  <button id="italic"><i>斜体</i></button>
+  <button id="underline"><u>下划线</u></button>
+</div>
+<div  contenteditable="true">
+这里面<b>已经</b>有<i>一些</i> <u>富文本</u>了
+
+</div>
+
+<div  draggable="true">
+我可以被拖动
+
+</div>
+
+<div  dropzone="true" style="border: 1px solid #FF0000; width: 70px; height: 40px; ">
+
+可以拖东西放到我 身上
+</div>
+<img alt="" src="" >
+<div id="treet" data-leaves="47" data-plant-height="2.4m"></div>
+
+
+</body>
+
+</html>

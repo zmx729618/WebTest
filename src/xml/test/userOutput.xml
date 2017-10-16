@@ -1,0 +1,15 @@
+<user id="3">
+  <name>萨木普</name>
+  <age>0</age>
+  <sex>女</sex>
+  <logs>
+    <log>
+      <id>2</id>
+      <ip>127.0.0.1</ip>
+    </log>
+    <log>
+      <id>2</id>
+      <ip>127.0.0.1</ip>
+    </log>
+  </logs>
+</user>

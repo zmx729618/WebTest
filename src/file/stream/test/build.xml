@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<user id="2">
+     <name>南派三叔</name>
+     <age>24</age>
+     <sex>男</sex>
+     <logs>
+        <log>
+           <id>1</id>
+           <ip>127.0.0.1</ip>
+           <date>2015-03-25</date>
+        </log>
+        <log>
+           <id>2</id>
+           <ip>127.0.0.1</ip>
+           <date>2015-03-25</date>
+        </log>
+     </logs>
+</user>

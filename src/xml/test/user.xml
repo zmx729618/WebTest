@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+<user id="1">
+     <name>Edward</name>
+     <age>24</age>
+     <sex>Male</sex>
+     <logs>
+        <log>
+           <id>1</id>
+           <ip>127.0.0.1</ip>
+           <date>2015-03-25</date>
+        </log>
+        <log>
+           <id>2</id>
+           <ip>127.0.0.1</ip>
+           <date>2015-03-25</date>
+        </log>
+     </logs>
+</user>
+<user id="2">
+     <name>Edward2</name>
+     <age>24</age>
+     <sex>Male</sex>
+     <logs>
+        <log>
+           <id>1</id>
+           <ip>127.0.0.1</ip>
+           <date>2015-03-25</date>
+        </log>
+        <log>
+           <id>2</id>
+           <ip>127.0.0.1</ip>
+           <date>2015-03-25</date>
+        </log>
+     </logs>
+</user>
+</users>

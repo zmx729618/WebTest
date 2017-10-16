@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jee="http://www.springframework.org/schema/jee" 
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd   
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd   
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd   
+       http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd   
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+    <context:property-placeholder  location="classpath*:/application.properties"/>
+<!--     外部属性文件配置
+    <bean id="property-placeholder" class="org.jasypt.spring.properties.EncryptablePreferencesPlaceholderConfigurer">
+       <property name="locations" >
+          <list>
+             <value>classpath*:/application.properties</value>
+          </list>
+       </property>
+       <constructor-arg ref="stringEncrypter"></constructor-arg>
+    </bean>
+    配置加密器，将用于解密
+    <bean id="stringEncrypter" class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor">
+       <property name="config" ref="environmentConfig"></property>
+    </bean>
+    基于环境变量，配置加密机
+    <bean id="environmentConfig" class="org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig">
+       <property name="algorithm" value="PBEWITHMD5AndDES"></property>
+       <property name="passwordEnvName" value="DB_ENCRYPTION_PWD"></property>
+    </bean> -->
+    <context:spring-configured/>
+
+    <context:component-scan base-package="org.zwc.testweb">
+        <context:exclude-filter expression="org.springframework.stereotype.Controller" type="annotation"/>
+    </context:component-scan> 
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/testweb"/>
+        <property name="username" value="root"/>
+        <property name="password" value="0729"/>
+    </bean>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource">
+            <ref local="dataSource"/>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="javax.persistence.validation.mode">none</prop>
+                <prop key="hibernate.dialect">${db.dialect}</prop>
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+                <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl}</prop>
+               <!--  <prop key="hibernate.jdbc.batch_size">100</prop> -->
+
+                <!-- 配置查询缓存 -->
+                <prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+                <prop key="hibernate.cache.use_second_level_cache">true</prop>
+                <prop key="hibernate.cache.use_query_cache">true</prop>              
+                <prop key="hibernate.cache.use_structured_entries">true</prop>
+                <prop key="hibernate.cache.provider_configuration_file_resource_path">/ehcache.xml</prop>
+            </props>
+        </property>
+        <property name="packagesToScan" value="org.zwc.testweb"/>
+    </bean>
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+
+
+    
+    
+    
+     <bean id="myBeanTest" class="spring.source.test.MyBeanTest"> </bean>
+ <!--   <bean id="httpInvokerTestImpl" class="rmi.http.test.HttpInvokerTestImpl"></bean> -->
+    <bean id="myScheduler" lazy-init="false" autowire="no"  
+        class="org.springframework.scheduling.quartz.SchedulerFactoryBean">  
+        <property name="triggers">  
+            <list>  
+                <ref bean="myJobTrigger" />  
+            </list>  
+        </property>  
+    </bean>  
+    
+    <bean id="myJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">  
+        <property name="jobDetail">  
+            <ref bean="myJobDetail" />  
+        </property>  
+        <property name="cronExpression">  
+            <value>00,10,20,30,40,50 * * * * ?</value>  
+        </property>  
+    </bean>  
+    <bean id="myJobDetail"  
+        class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">  
+        <property name="targetObject">  
+            <ref bean="myJob" />  
+        </property>  
+        <property name="targetMethod">  
+            <value>scan</value>  
+        </property>  
+    </bean>  
+    <bean id="myJob" class="quartz.spring.test.MyQuartzJob" /> 
+    
+    
+    
+</beans>
